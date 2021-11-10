@@ -122,7 +122,7 @@ package
 					
 					var idol : Idol = addIdol(coord.x, coord.y);
 					
-					idolDelay = FlxU.randomRangeInt(3000, 5000) / 1000;
+					idolDelay = FlxExtraU.randomRangeInt(3000, 5000) / 1000;
 					idolCount--;
 				}
 			}
@@ -154,12 +154,16 @@ package
 				  coord.y
 				  );
 				
-				var velocityLength : Number = FlxU.randomRangeInt(30, 70) + stage * 10;			
+				var velocityLength : Number = FlxExtraU.randomRangeInt(30, 70) + stage * 10;			
 				
-				asteroid.velocity.x = FlxU.randomInt(FlxG.width) - asteroid.x;
-				asteroid.velocity.y = FlxU.randomInt(FlxG.height) - asteroid.y;
-				asteroid.velocity.normalize();
-				asteroid.velocity.multScalar(velocityLength);
+				asteroid.velocity.x = FlxExtraU.randomInt(FlxG.width) - asteroid.x;
+				asteroid.velocity.y = FlxExtraU.randomInt(FlxG.height) - asteroid.y;
+        
+				// asteroid.velocity.normalize();
+        FlxExtraU.normalize(asteroid.velocity);
+        
+				// asteroid.velocity.multScalar(velocityLength);
+        FlxExtraU.multScalar(asteroid.velocity, velocityLength);
 				
 				// add a small angular velocity
 				asteroid.angularVelocity = 5 * Math.random();
@@ -172,7 +176,7 @@ package
 			// the idol starts with a small delay and there is also a delay
 			// when the next idol appears
 			idolCount = 1 + Math.floor(stage / 3);
-			idolDelay = FlxU.randomRangeInt(3000, 5000) / 1000.0;
+			idolDelay = FlxExtraU.randomRangeInt(3000, 5000) / 1000.0;
 		}
 		
 		/**
@@ -188,7 +192,7 @@ package
 							
 			var randomRadius : Number = 
 			  1.5 * FlxU.max(FlxG.width / 2, FlxG.height / 2) + 
-			  30 + FlxU.randomInt(30);
+			  30 + FlxExtraU.randomInt(30);
 			  
 			//trace(randomRadius);
 			  

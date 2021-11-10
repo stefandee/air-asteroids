@@ -3,8 +3,6 @@
 <!--Any modifications you make may be lost.-->
 <flex-config>
   <target-player>10.3</target-player>
-  <benchmark>false</benchmark>
-  <static-link-runtime-shared-libraries>true</static-link-runtime-shared-libraries>
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
@@ -16,18 +14,30 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'9/22/2011'</value>
+      <value>'10/11/2021'</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::air</name>
+      <value>false</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::mobile</name>
+      <value>false</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::desktop</name>
+      <value>false</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>E:\Home\Karg\Projects\Haxe\test\asteroids\asteroids\src</path-element>
-      <path-element>E:\Home\Karg\Projects\Haxe\test\asteroids\asteroids\src</path-element>
-      <path-element>E:\Home\Karg\Projects\Haxe\test\asteroids\AdamAtomic-flixel-8989e50</path-element>
-      <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>E:\Projects\as3\flxasteroids\src</path-element>
+      <path-element>E:\Projects\as3\flxasteroids\src</path-element>
+      <path-element>E:\Projects\as3\as3libs\AdamAtomic-flixel-8989e50</path-element>
+      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>E:\Home\Karg\Projects\Haxe\test\asteroids\asteroids\src\Asteroids.as</path-element>
+    <path-element>E:\Projects\as3\flxasteroids\src\Asteroids.as</path-element>
   </file-specs>
   <default-background-color>#000000</default-background-color>
   <default-frame-rate>30</default-frame-rate>

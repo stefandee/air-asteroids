@@ -102,7 +102,8 @@ package
 			
 			handleInput();
 			
-			if (acceleration.length() > 0)
+			// if (acceleration.length() > 0)
+			if (FlxExtraU.length(acceleration) > 0)
 			{
 				//drag.copyFrom(acceleration);
 				//drag.normalize();
@@ -151,7 +152,8 @@ package
 		
 		private function factorAccel(factor : Number) : void
 		{
-			var velLength : Number = velocity.length();
+			// var velLength : Number = velocity.length();
+			// var velLength : Number = FlxExtraU.length(velocity);
 			
 			velocity.x += (factor) * Math.cos((angle - 90) * Math.PI / 180.0);
 			velocity.y += (factor) * Math.sin((angle - 90) * Math.PI / 180.0);			
@@ -284,8 +286,8 @@ package
 					// add the fx before
 					addTeleportFx(x, y);					
 					
-					this.x = FlxU.randomInt(FlxG.width);
-					this.y = FlxU.randomInt(FlxG.height);
+					this.x = FlxExtraU.randomInt(FlxG.width);
+					this.y = FlxExtraU.randomInt(FlxG.height);
 					
 					// add the fx after
 					addTeleportFx(x, y);	
