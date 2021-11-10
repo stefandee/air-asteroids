@@ -3,7 +3,7 @@ package
 	import org.flixel.FlxU;
 	import org.flixel.FlxG;
 	import org.flixel.FlxSound;
-	
+  
 	/**
 	 * ...
 	 * @author Stefan Dicu
@@ -73,8 +73,11 @@ package
 					bullet.velocity.x = player.x + player.origin.x - x - origin.x;
 					bullet.velocity.y = player.y + player.origin.y - y - origin.y;
 					
-					bullet.velocity.normalize();
-					bullet.velocity.multScalar(BULLET_VELOCITY);
+					// bullet.velocity.normalize();
+          FlxExtraU.normalize(bullet.velocity);
+          
+					// bullet.velocity.multScalar(BULLET_VELOCITY);
+          FlxExtraU.multScalar(bullet.velocity, BULLET_VELOCITY);
 						
 					//mission.enemyBullets.add(bullet);
 					sndFire.play();
@@ -86,10 +89,14 @@ package
 		
 		private function randomHeading() : void
 		{
-			velocity.x = FlxU.randomInt(FlxG.width) - x;
-			velocity.y = FlxU.randomInt(FlxG.height) - y;
-			velocity.normalize();
-			velocity.multScalar(VELOCITY);
+			velocity.x = FlxExtraU.randomInt(FlxG.width) - x;
+			velocity.y = FlxExtraU.randomInt(FlxG.height) - y;
+      
+			// velocity.normalize();
+      FlxExtraU.normalize(velocity);
+      
+			// velocity.multScalar(VELOCITY);
+      FlxExtraU.multScalar(velocity, VELOCITY);
 		}
 		
 		override public function hurt(Damage:Number):void

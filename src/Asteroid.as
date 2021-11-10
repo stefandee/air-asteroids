@@ -76,7 +76,7 @@ package
 			// split the larger asteroids in two
 			if (level < 2)
 			{
-				var velocitySpread : Number = FlxU.randomRangeInt(10, 20) * Math.PI / 180;
+				var velocitySpread : Number = FlxExtraU.randomRangeInt(10, 20) * Math.PI / 180;
 				var asteroidCount  : int = 2;
 				var velAngle       : Number = -velocitySpread / asteroidCount;
 				var velAngleDelta  : Number = velocitySpread / (asteroidCount - 1)
@@ -93,8 +93,8 @@ package
 					
 					var asteroid : Asteroid = mission.addAsteroid(
 					  level + 1,
-					  x + origin.y + FlxU.randomRangeInt(-20, 20),
-					  y + origin.y + FlxU.randomRangeInt(-20, 20)
+					  x + origin.y + FlxExtraU.randomRangeInt(-20, 20),
+					  y + origin.y + FlxExtraU.randomRangeInt(-20, 20)
 					 );
 					 
 					 asteroid.velocity.x = velocity.x;
@@ -104,10 +104,12 @@ package
 					 					 
 					 					 
 					 // distribute the velocities
-					 asteroid.velocity.rotateAroundOrigin(velAngle);
+					 // asteroid.velocity.rotateAroundOrigin(velAngle);
+           FlxExtraU.rotateAroundOrigin(asteroid.velocity, velAngle);
 					 
 					 // scale the velocity with a small factor
-					 asteroid.velocity.multScalar(1.0 + 0.2 * Math.random());
+					 // asteroid.velocity.multScalar(1.0 + 0.2 * Math.random());
+           FlxExtraU.multScalar(asteroid.velocity, 1.0 + 0.2 * Math.random());
 					 
 					 velAngle += velAngleDelta;
 				}
@@ -140,7 +142,7 @@ package
 				{
 					loadGraphic(SpriteSheet2, true, false, 32, 32);
 					
-					addAnimation("idle", [FlxU.randomInt(2)], 0, true);
+					addAnimation("idle", [FlxExtraU.randomInt(2)], 0, true);
 					
 					break;
 				}
@@ -148,7 +150,7 @@ package
 				case 2:
 				{
 					loadGraphic(SpriteSheet3, true, false, 16, 16);	
-					addAnimation("idle", [FlxU.randomInt(4)], 0, true);
+					addAnimation("idle", [FlxExtraU.randomInt(4)], 0, true);
 					break;
 				}
 			}

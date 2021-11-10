@@ -10,7 +10,8 @@ package
 	{
 		public function Asteroids()
 		{
-			super(640, 480, MenuState, StageScaleMode.SHOW_ALL, 1);
+			// super(640, 480, MenuState, StageScaleMode.SHOW_ALL, 1);
+			super(640, 480, MenuState, 1);
 		}
 	}
 }

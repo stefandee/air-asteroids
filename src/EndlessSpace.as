@@ -39,29 +39,29 @@ package
 			
 			fill(0xFF000000);
 			
-			pixels.perlinNoise(FlxG.width, FlxG.height, 4, FlxU.randomInt(300000), true, false, 12);
+			pixels.perlinNoise(FlxG.width, FlxG.height, 4, FlxExtraU.randomInt(300000), true, false, 12);
 			
 			//
 			// create a basic starfield
 			//
-			var pixelStarCount : uint = FlxU.randomRangeInt(MIN_STAR_COUNT, MAX_STAR_COUNT);
-			var smallStarCount : uint = FlxU.randomRangeInt(MIN_SMALL_STAR_COUNT, MAX_SMALL_STAR_COUNT);
+			var pixelStarCount : uint = FlxExtraU.randomRangeInt(MIN_STAR_COUNT, MAX_STAR_COUNT);
+			var smallStarCount : uint = FlxExtraU.randomRangeInt(MIN_SMALL_STAR_COUNT, MAX_SMALL_STAR_COUNT);
 			renderStarField(0, 0, FlxG.width, FlxG.height, pixelStarCount, smallStarCount, 1);
 						
 			
 			//
 			// create star clusters (stamp the stars into the bitmapdata of this sprite)
 			//
-			var starClusterCount : uint = FlxU.randomRangeInt(MIN_STAR_CLUSTER_COUNT, MAX_STAR_CLUSTER_COUNT);
+			var starClusterCount : uint = FlxExtraU.randomRangeInt(MIN_STAR_CLUSTER_COUNT, MAX_STAR_CLUSTER_COUNT);
 			
 			for (var i : int = 0; i < starClusterCount; i++)
 			{
 				// some magic numbers there :)
 				renderStarField(
-				  FlxU.randomInt(FlxG.width), 
-				  FlxU.randomInt(FlxG.height), 
-				  FlxU.randomRangeInt(48, 96),
-				  FlxU.randomRangeInt(48, 96),
+				  FlxExtraU.randomInt(FlxG.width), 
+				  FlxExtraU.randomInt(FlxG.height), 
+				  FlxExtraU.randomRangeInt(48, 96),
+				  FlxExtraU.randomRangeInt(48, 96),
 				  16,
 				  4,
 				  1
@@ -77,16 +77,16 @@ package
 			// render the pixel stars
 			for (var i : uint = 0; i < pixelStarCount; i++)
 			{
-				var starSize : int = FlxU.randomRangeInt(1, 3);
+				var starSize : int = FlxExtraU.randomRangeInt(1, 3);
 				
-				tmpRectangle.x = x + FlxU.randomInt(w);
-				tmpRectangle.y = y + FlxU.randomInt(h);
+				tmpRectangle.x = x + FlxExtraU.randomInt(w);
+				tmpRectangle.y = y + FlxExtraU.randomInt(h);
 				tmpRectangle.width = starSize;
 				tmpRectangle.height = starSize;
 				
 				//var alpha : int = FlxU.randomInt(0xFF) << 24;
 				var alpha : int = 0xFF << 24;
-				var color : int = colors[FlxU.randomInt(colors.length)];
+				var color : int = colors[FlxExtraU.randomInt(colors.length)];
 				
 				pixels.fillRect(tmpRectangle, color | alpha);
 			}
@@ -99,7 +99,7 @@ package
 			{
 				spr.randomFrame();
 				
-				stamp(spr, x + FlxU.randomInt(w), y + FlxU.randomInt(h));
+				stamp(spr, x + FlxExtraU.randomInt(w), y + FlxExtraU.randomInt(h));
 			}			
 			
 			spr.loadGraphic(SpriteBigStars, true, false, 11, 11);			
@@ -108,7 +108,7 @@ package
 			{
 				spr.randomFrame();
 				
-				stamp(spr, x + FlxU.randomInt(w), y + FlxU.randomInt(h));
+				stamp(spr, x + FlxExtraU.randomInt(w), y + FlxExtraU.randomInt(h));
 			}						
 		}
 	}
